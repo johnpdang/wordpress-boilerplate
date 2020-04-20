@@ -18,7 +18,7 @@ module.exports = {
         }),
         new BrowserSyncPlugin({
             // set proxy to your MAMP local dev env
-            proxy: 'http://sya.local:8888',
+            proxy: 'http://wordpress-boilerplate.local:8888',
             files: [{
                 // Tell browserSync which files to watch for
                 match: [
