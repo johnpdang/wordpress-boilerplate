@@ -58,24 +58,24 @@ class MB_Custom_Taxonomy_Edit {
 			return;
 		}
 
-		wp_enqueue_style( 'highlightjs', MB_CUSTOM_TAXONOMY_URL . 'css/atom-one-dark.css', array(), '1.4.0' );
+		wp_enqueue_style( 'highlightjs', MB_CUSTOM_TAXONOMY_URL . 'css/atom-one-dark.min.css', array(), '9.15.8' );
 		wp_enqueue_style( 'mb-custom-taxonomy', MB_CUSTOM_TAXONOMY_URL . 'css/style.css', array(), '1.4.0' );
 
-		wp_enqueue_script( 'angular', MB_CUSTOM_TAXONOMY_URL . 'js/angular.min.js', array(), '1.4.2', true );
-		wp_enqueue_script( 'highlightjs', MB_CUSTOM_TAXONOMY_URL . 'js/highlight.pack.js', array(), '9.11.0', true );
-		wp_enqueue_script( 'clipboard', MB_CUSTOM_TAXONOMY_URL . 'js/clipboard.min.js', array(), '1.3.2', true );
+		wp_enqueue_script( 'angular', MB_CUSTOM_TAXONOMY_URL . 'js/angular.min.js', array( 'jquery' ), '1.7.8', true );
+		wp_enqueue_script( 'highlightjs', MB_CUSTOM_TAXONOMY_URL . 'js/highlight.min.js', array(), '9.15.8', true );
+		wp_enqueue_script( 'clipboard', MB_CUSTOM_TAXONOMY_URL . 'js/clipboard.min.js', array(), '2.4.0', true );
 
 		if ( ! wp_script_is( 'mb-cpt', 'enqueued' ) ) {
 			wp_enqueue_script(
 				'mb-custom-taxonomy',
-				MB_CUSTOM_TAXONOMY_URL . 'js/script.js',
+				MB_CUSTOM_TAXONOMY_URL . 'js/taxonomy.js',
 				array(
 					'jquery',
 					'angular',
 					'clipboard',
 					'highlightjs',
 				),
-				'1.0.0',
+				'1.4.2',
 				false
 			);
 		}
@@ -287,6 +287,7 @@ class MB_Custom_Taxonomy_Edit {
 				'name' => __( 'Show in REST?', 'mb-custom-taxonomy' ),
 				'id'   => $args_prefix . 'show_in_rest',
 				'type' => 'checkbox',
+				'std'  => 1,
 				'desc' => __( 'Whether to include the taxonomy in the REST API.', 'mb-custom-taxonomy' ),
 			),
 			array(
@@ -359,21 +360,31 @@ class MB_Custom_Taxonomy_Edit {
 			),
 		);
 
+		$buttons = '<button type="button" class="button" id="ct-toggle-labels">' . esc_html__( 'Toggle Labels Settings', 'mb-custom-post-type' ) . '</button> <button type="button" class="button" id="ct-toggle-code">' . esc_html__( 'Get PHP Code', 'mb-custom-post-type' ) . '</button>';
+
+		if ( function_exists( 'mb_builder_load' ) && function_exists( 'mb_user_meta_load' ) ) {
+			$buttons .= ' <a class="button button-primary" href="' . esc_url( admin_url( 'edit.php?post_type=meta-box' ) ) . '" target="_blank">' . esc_html__( 'Add Custom Fields', 'mb-custom-post-type' ) . '</a>';
+		}
+
+		$meta_boxes[] = array(
+			'id'         => 'ct-buttons',
+			'title'      => ' ',
+			'post_types' => array( 'mb-taxonomy' ),
+			'style'      => 'seamless',
+			'fields'     => array(
+				array(
+					'type' => 'custom_html',
+					'std'  => $buttons,
+				),
+			),
+		);
+
 		// Basic settings.
 		$meta_boxes[] = array(
 			'id'         => 'mb-ct-basic-settings',
 			'title'      => __( 'Basic Settings', 'mb-custom-taxonomy' ),
 			'post_types' => 'mb-taxonomy',
-			'fields'     => array_merge(
-				$basic_fields,
-				array(
-					array(
-						'id'   => 'btn-toggle-advanced',
-						'type' => 'button',
-						'std'  => __( 'Advanced', 'mb-custom-taxonomy' ),
-					),
-				)
-			),
+			'fields'     => $basic_fields,
 			'validation' => array(
 				'rules'    => array(
 					$label_prefix . 'name'          => array(
@@ -629,13 +640,8 @@ class MB_Custom_Taxonomy_Edit {
 	 * @return bool
 	 */
 	public function is_premium_user() {
-		$option = is_multisite() ? get_site_option( 'meta_box_updater' ) : get_option( 'meta_box_updater' );
-		if ( empty( $option['api_key'] ) ) {
-			return false;
-		}
-		if ( isset( $option['status'] ) && 'success' !== $option['status'] ) {
-			return false;
-		}
-		return true;
+		$update_option = new RWMB_Update_Option();
+		$update_checker = new RWMB_Update_Checker( $update_option );
+		return $update_checker->has_extensions();
 	}
 }

@@ -3,7 +3,7 @@
  * Plugin Name: MB Custom Post Type
  * Plugin URI:  https://metabox.io/plugins/custom-post-type/
  * Description: Create custom post types and custom taxonomies with easy-to-use UI
- * Version:     1.8.4
+ * Version:     1.9.4
  * Author:      MetaBox.io
  * Author URI:  https://metabox.io
  * License:     GPL-2.0+
@@ -61,8 +61,8 @@ if ( ! function_exists( 'mb_cpt_load' ) ) {
 		require dirname( __FILE__ ) . '/inc/encoders/taxonomy-encoder.php';
 		require dirname( __FILE__ ) . '/inc/about/about.php';
 
-		$post_type_encoder = new MB_CPT_Post_Type_Encoder();
-		new MB_CPT_Post_Type_Edit( 'mb-post-type', $cpt_register, $post_type_encoder );
+		$cpt_encoder = new MB_CPT_Post_Type_Encoder();
+		new MB_CPT_Post_Type_Edit( 'mb-post-type', $cpt_register, $cpt_encoder );
 
 		$tax_encoder = new MB_CPT_Taxonomy_Encoder();
 		new MB_CPT_Taxonomy_Edit( 'mb-taxonomy', $tax_register, $tax_encoder );

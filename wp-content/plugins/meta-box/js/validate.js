@@ -7,10 +7,15 @@ jQuery( function ( $ ) {
 			$( '#publish' ).removeClass( 'button-primary-disabled' );
 			$( '#ajax-loading' ).attr( 'style', '' );
 			$form.siblings( '#message' ).remove();
-			$form.before( '<div id="message" class="error"><p>' + rwmbValidate.summaryMessage + '</p></div>' );
+			$form.before( '<div id="message" class="notice notice-error is-dismissible"><p>' + rwmbValidate.summaryMessage + '</p></div>' );
+
+			// Custom event for showing error fields inside tabs/hidden divs. Use setTimeout() to run after error class is added to inputs.
+			setTimeout( function() {
+				$form.trigger( 'after_validate' );
+			}, 200 );
 		},
-		ignore: ':not([class|="rwmb"])',
-		errorPlacement: function(error, element) {
+		ignore: ':not([class|="rwmb"]:visible)',
+		errorPlacement: function( error, element ) {
 			error.appendTo( element.closest( '.rwmb-input' ) );
 		},
 		errorClass: 'rwmb-error',
@@ -49,5 +54,10 @@ jQuery( function ( $ ) {
 	} );
 
 	// Execute.
-	$form.validate( rules );
+	$form.on( 'submit', function() {
+		// Update underlying textarea before submit validation.
+		if ( typeof tinyMCE !== 'undefined' ) {
+			tinyMCE.triggerSave();
+		}
+	} ).validate( rules );
 } );

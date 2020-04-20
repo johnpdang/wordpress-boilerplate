@@ -1,5 +1,55 @@
 # Change Log
 
+## [3.0.3] - 2020-04-15
+
+### Fixed
+
+- PHP warnings being thrown
+- Make sure admin menu is always accessible
+
+### Changed
+
+- Display icons using file_get_contents() instead of include() to prevent executing them as PHP
+
+## [3.0.2] - 2020-04-09
+
+### Fixed
+
+- Minimized SVG icons to fix issues with parsing them
+
+## [3.0.1] - 2020-04-09
+
+- Some JS and image files weren't checked in via SVN, so bumped version to add them
+
+## [3.0] - 2020-04-08
+
+### Added
+
+- Rolled all add-ons into core.
+
+### Changed
+
+- Consolidated all Members-related settings under one admin menu item.
+- Made login and user widgets enabled by default, and removed settings.
+
+## [2.2.0] - 2019-07-20
+
+### Added
+
+- Settings page sub-view for donations.
+
+### Fixed
+
+- Makes sure that we have a post object when determining whether a user can view a given post.
+- Makes sure that denied capabilities are an array when filtering `user_has_cap`.
+- Typo in `readme.txt`.
+
+### Changed
+
+- Links user count on edit role screen to users by role page.
+- Links user count on manage roles screen to users by role page.
+- Updated the add-ons sub-view with design changes and a "pro" section.
+
 ## [2.1.0] - 2018-04-19
 
 ### Added

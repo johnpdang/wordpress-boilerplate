@@ -58,10 +58,20 @@ function members_register_default_settings_views( $manager ) {
  * @return bool
  */
 function members_is_settings_page() {
-
 	$screen = get_current_screen();
+	return is_object( $screen ) && ( 'members_page_members-settings' === $screen->id || 'admin_page_members-settings' === $screen->id );
+}
 
-	return is_object( $screen ) && 'settings_page_members-settings' === $screen->id;
+/**
+ * Conditional function to check if an add-on is active.
+ *
+ * @since  2.3.0
+ * @access public
+ * @param  string  $addon 	Add-on name/key (e.g. members-block-permissions)
+ * @return bool
+ */
+function members_is_addon_active( $addon ) {
+	return in_array( $addon, get_option( 'members_active_addons', array() ) );
 }
 
 /**
