@@ -1,0 +1,106 @@
+blockquote,
+.blockquote {
+  margin-bottom: 0;
+  &:before {
+    background-image: url("/wp-content/uploads/2019/05/quotation-mark-orangeyellow@2x.png");
+    background-size: 62px 54px;
+    content: "";
+    display: block;
+    height: 54px;
+    margin: 0 auto 3rem auto;
+    width: 62px;
+  }
+  h2 {
+    max-width: 85%;
+    text-align: center;
+    margin: 0 auto 2.5rem auto;
+  }
+  &_bg {
+    background-image: url("/wp-content/uploads/2019/04/quote-bg.jpg");
+    background-position: top right;
+    min-height: 1050px;
+    background-size: 80%;
+    @include mq-min($screen-lg) {
+      transform: translateY(-10%);
+      margin-bottom: -5%;
+    }
+    .blockquote {
+      padding: 6rem 2rem 17rem 2rem;
+      @include mq-min($screen-sm) {
+        padding: 7.5rem 2rem 19rem 2rem;
+      }
+      p {
+        font-weight: $fw_regular;
+        color: $c_element;
+        letter-spacing: 0.17rem;
+        text-transform: uppercase;
+        font-size: 12px;
+      }
+    }
+  }
+  &_bg-alt {
+    background: url("/wp-content/uploads/2019/05/advocacy-quote-bg.jpg");
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+    .container {
+      @include mq-min($screen-lg) {
+        .blockquote {
+          max-width: 55%;
+          margin-left: 15%;
+        }
+      }
+    }
+    h2 {
+      max-width: 100%;
+    }
+    h2,
+    p {
+      color: $c_white;
+      text-align: left;
+      // @include mq-min($screen-sm) {
+      //   max-width: 60%;
+      // }
+    }
+    p {
+      font-size: 1.2rem;
+      font-weight: normal;
+      letter-spacing: 0.17rem;
+      text-transform: uppercase;
+    }
+    .blockquote {
+      &:before {
+        background-image: url("/wp-content/uploads/2019/05/quotation-mark-white@2x.png");
+        background-size: 62px 54px;
+        content: "";
+        display: inline-block;
+        height: 54px;
+        width: 62px;
+      }
+    }
+  }
+}
+
+.blockquote__alt {
+  width: 75%;
+  &:before {
+    background-image: url("/wp-content/uploads/2019/05/quotation-mark-white@2x.png");
+    background-size: 62px 54px;
+    content: "";
+    display: inline-block;
+    height: 54px;
+    width: 62px;
+  }
+}
+.offsety {
+  transform: translateY(-12rem);
+  margin-bottom: -12rem !important;
+  // margin-bottom: -45rem !important;
+  @include mq-min($screen-lg) {
+    transform: translateY(-22rem);
+    margin-bottom: -22rem !important;
+  }
+  &-lg {
+    transform: translateY(-55rem);
+    margin-bottom: -55rem !important;
+  }
+}

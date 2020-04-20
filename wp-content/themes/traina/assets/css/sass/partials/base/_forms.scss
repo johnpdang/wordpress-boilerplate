@@ -1,0 +1,209 @@
+.section-grid {
+  form {
+    max-width: 1200px;
+    padding: 0;
+    ul {
+      columns: 1;
+    }
+  }
+}
+
+.form-text {
+  margin-top: 0;
+}
+
+label {
+  color: $c_secondary;
+  display: block;
+  //display: none;
+  margin-bottom: 1em;
+  font-size: 1.2rem;
+  font-weight: $fw_bold;
+}
+
+fieldset {
+  margin-bottom: 1em;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+  color: #595959;
+  border: 0;
+  border-bottom: 1px solid #bbb;
+  display: block;
+  padding: 1rem 1rem 1rem 0;
+  width: 100%;
+  margin-bottom: 2rem;
+  font-size: 1.4rem;
+  font-weight: $fw_bold;
+  &.form-text-alt {
+    background: transparent;
+    border: 1px solid $white;
+  }
+  &:hover {
+    background: #f4f4f4;
+    padding: 1rem;
+    border-bottom: 2px solid $c_primary;
+    transition: all 250ms ease-in-out;
+  }
+  &:focus {
+    background: #f4f4f4;
+    padding: 1rem;
+    border-bottom: 2px solid $c_primary;
+    outline: none;
+  }
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="range"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="color"]:focus,
+textarea:focus {
+  // color: #222;
+  // border-color: #333;
+}
+
+select {
+  // border: 1px solid #bbb;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+  height: 3em;
+  max-width: 100%;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  margin-right: 0.5em;
+}
+
+input[type="radio"] + label,
+input[type="checkbox"] + label {
+  font-weight: 400;
+}
+
+input[type="button"],
+input[type="submit"] {
+  // background-color: #222;
+  border: 0;
+  box-shadow: none;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1;
+  padding: 1em 2em 1em 0;
+  text-shadow: none;
+  -webkit-transition: background 0.2s;
+  transition: background 0.2s;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  &:after {
+    content: "";
+    background: url(/wp-content/uploads/2019/05/cta-arrow@3x.png) no-repeat;
+    background-size: 100%;
+    display: inline-block;
+    font-size: 1.6rem;
+    height: 9px;
+    line-height: 1;
+    margin-left: 0.5em;
+    width: 22px;
+  }
+  &.form-submit-btn-alt {
+    background: transparent;
+    border: 1px solid $white;
+    &:hover,
+    &:focus,
+    &:active {
+      background: $white;
+      color: $c_alt;
+    }
+  }
+}
+
+input + button,
+input + input[type="button"],
+input + input[type="submit"] {
+  padding: 0.75em 2em;
+}
+
+button.secondary,
+input[type="reset"],
+input[type="button"].secondary,
+input[type="reset"].secondary,
+input[type="submit"].secondary {
+  // background-color: #ddd;
+  // color: #222;
+}
+
+button:hover,
+button:focus,
+input[type="button"]:hover,
+input[type="button"]:focus,
+input[type="submit"]:hover,
+input[type="submit"]:focus {
+  //     background: #767676;
+}
+
+button.secondary:hover,
+button.secondary:focus,
+input[type="reset"]:hover,
+input[type="reset"]:focus,
+input[type="button"].secondary:hover,
+input[type="button"].secondary:focus,
+input[type="reset"].secondary:hover,
+input[type="reset"].secondary:focus,
+input[type="submit"].secondary:hover,
+input[type="submit"].secondary:focus {
+  // background: #bbb;
+}
+
+/* Placeholder text color -- selectors need to be separate to work. */
+
+::-webkit-input-placeholder {
+  // color: #333;
+}
+
+:-moz-placeholder {
+  // color: #333;
+}
+
+::-moz-placeholder {
+  // color: #333;
+  opacity: 1;
+  /* Since FF19 lowers the opacity of the placeholder by default */
+}
+
+:-ms-input-placeholder {
+  // color: #333;
+}
+
+#footer .form_eyebrow {
+  @media (max-width: 1023px) {
+    margin-bottom: 13px;
+  }
+}

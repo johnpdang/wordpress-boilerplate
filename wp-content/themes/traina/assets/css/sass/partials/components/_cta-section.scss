@@ -1,0 +1,22 @@
+.cta_section {
+  align-items: center;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 550px;
+  text-align: center;
+
+  h2.column-title {
+    font-weight: 100;
+    line-height: 5rem;
+    margin-bottom: 5rem;
+  }
+  p.column-desc {
+    line-height: 3rem;
+    margin-bottom: 3rem;
+  }
+}

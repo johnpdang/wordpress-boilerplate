@@ -1,0 +1,13 @@
+// Mixin for min-width media query, accepts a width parameter
+@mixin mq-min($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+// Mixin for max-width media query, accepts a width parameter
+@mixin mq-max($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}

@@ -1,0 +1,112 @@
+/* ==============================
+grid
+============================== */
+.grid {
+  
+  .flex-grid {
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 3rem 0;
+  }
+  
+  .card {
+    &__item {
+      margin: 0 0.5rem;
+      .card {
+        &__content {
+          min-height: 360px;
+          border: 2px solid $c_secondary_reverse;
+          margin-bottom: 1rem;
+          padding: 1.5rem;
+          position: relative;
+          transition: all 350ms ease-in-out;
+          &:hover {
+            border: 2px solid $c_primary;
+            background-color: transparent;
+            cursor: pointer;
+
+            a.link_external svg {
+              .background{
+                fill: #0A436A;
+              }
+              .icon {
+                stroke: #fff;
+              }
+            }
+
+          }
+
+        }
+        &__text {
+          p {
+            color: $c_primary;
+            font-family: $font_primary;
+            font-size: 1.4rem;
+            font-weight: $fw_bold;
+            letter-spacing: 2px;
+            line-height: normal;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+          }
+          hr.line__bottom {
+            border-top: 0;
+            border: 1px solid $c_accent;
+            width: 2.5rem;
+          }
+        }
+
+        &__more {
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          height: 100%;
+          padding-top: 3em;
+        }
+
+        &__body {
+          text-align: center;
+        }
+
+        &__image-wrapper img{
+          width: auto;
+          height: 100%;
+          max-height: 110px;
+        }
+      }
+      a.link_external {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 2;
+        display: flex;
+        justify-content: flex-start;
+        svg {
+          height: 57px;
+          width: 60px;
+          align-self: flex-end;
+        }
+        path {
+          transition: all .3s ease-in-out;
+        }
+      }
+    } 
+  }
+  
+  @include mq-min($screen-sm) {
+    .flex-4 {
+      flex-basis: 45%;
+      width: 45%;
+    }
+  }
+  @include mq-min($screen-md) {
+    .flex-4 {
+      flex-basis: 23%;
+      width: 23%;
+    }
+  }
+}
+.card {
+  border: none;
+}

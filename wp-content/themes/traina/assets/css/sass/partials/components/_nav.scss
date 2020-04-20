@@ -1,0 +1,532 @@
+#display_navigation .menu {
+  margin: 0;
+  display: none;
+  @include mq-min($screen-md) {
+    display: block;
+  }
+}
+
+nav,
+.nav {
+  a {
+    font-size: 18px;
+    line-height: 18px;
+    cursor: pointer;
+    &:hover,
+    &:active,
+    &.active,
+    &:focus {
+      text-decoration: none;
+      color: #0f7e97;
+      outline: none;
+    }
+  }
+}
+
+.navbar {
+  background-color: #fff;
+  left: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  transition-delay: 450ms, 10ms;
+  transition-property: background-color, top;
+  transition: background-color 0.25s ease-out, top 0.45s ease-in-out;
+  width: 100%;
+  z-index: 10;
+
+  @include mq-min($screen-md) {
+    background-color: transparent;
+  }
+
+  .logged-in & {
+    top: 32px;
+  }
+
+  .isBelowFold.logged-in & {
+    @include mq-max($screen-md) {
+      top: 0;
+    }
+    &.navbar-hidden {
+      top: -200px;
+    }
+  }
+
+  .nav-bg {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: 0.2s background-color ease-in;
+  }
+  &.navbar-hidden {
+    top: -200px; // same as header height. use variables in LESS/SASS
+  }
+  .isBelowFold & {
+    background-color: $white;
+    .navbar-inner-wrap {
+      padding-top: 2.25rem;
+      padding-bottom: 2.25rem;
+    }
+  }
+}
+
+.navbar-brand {
+  padding-bottom: 0;
+  // padding-top: 1rem;
+  margin-left: 0;
+  cursor: pointer;
+  &:focus {
+    outline: none;
+  }
+  @include mq-min($screen-sm) {
+    padding-top: 0;
+    flex-basis: 30%;
+  }
+
+  .image_link {
+    width: 60px;
+    @include mq-min($screen-md) {
+      width: 100px;
+    }
+    &:focus {
+      outline: 1px dotted #ccc;
+    }
+  }
+  .title:focus {
+    outline: none;
+  }
+}
+.navbar-nav {
+  position: absolute;
+  right: 2.6rem;
+  @include mq-min($screen-md) {
+    position: relative;
+    right: initial;
+    flex-basis: 60%;
+    align-items: flex-end;
+    max-width: 700px;
+  }
+  .main-menu {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.navbar-inner-wrap {
+  -ms-flex-align: center;
+  -ms-flex-pack: justify;
+  -ms-flex-wrap: wrap;
+  // @extend .theme-container;
+  align-items: center;
+  display: -ms-flexbox;
+  position: relative; 
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  height: 100px;
+  padding-top: 0;
+  padding-bottom: 0;
+  width: 100%;
+  @include mq-min($screen-md) {
+    height: 145px;
+  }
+}
+
+.page-nav {
+  align-items: stretch;
+  display: flex;
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding-right: 108px;
+  .home & {
+    padding-right: 65px;
+  }
+}
+
+.navbar {
+  font-family: $font_secondary;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  .menu {
+    li {
+      display: inline-block;
+      list-style: none;
+      position: relative;
+      outline: none;
+      margin: 0 1rem;
+      &.menu-item--icon {
+        height: 40px;
+        line-height: 40px;
+        padding-top: 1.4rem;
+        text-align: center;
+        width: 40px;
+      }
+      a {
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 1.4rem;
+        letter-spacing: 3.2px;
+        color: $c_primary;
+        outline: none;
+        transition: margin-left 0.2s ease-in;
+        &:focus,
+        &:hover {
+          color: #0f7e97;
+        }
+      }
+      li {
+        display: block;
+        margin-bottom: 15px;
+      }
+    }
+  }
+}
+
+.flex-wrapper {
+  display: flex;
+  justify-content: center;
+  > div {
+    padding: 0 2rem;
+  }
+}
+
+span.menu-eyebrow {
+  display: none;
+}
+
+// Full menu display
+nav#display_full_navigation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100%;
+  overflow: scroll;
+  background-color: white;
+  .logged-in & {
+    top: 32px;
+  }
+
+  &.fade-in-menu {
+    display: none;
+  }
+
+  .flex-grid {
+    height: 100%;
+  }
+  .top-mobile-nav {
+    @include mq-max($screen-md) {
+      display: block;
+      background-color: #fff;
+      height: 100px;
+      margin-left: -25rem;
+    }
+  }
+  .left-content {
+    display: none;
+    @include mq-min($screen-md) {
+      display: flex;
+      flex-basis: 30%;
+      flex-grow: 1;
+      padding: 6rem 3.5rem;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      min-height: 800px;
+    }
+  }
+  .logo-link {
+    &:focus,
+    &:hover {
+      outline: none;
+      .mobile-logo {
+        outline: 1px dotted #ccc;
+      }
+    }
+  }
+  .image_link {
+    @include mq-min($screen-md) {
+      width: 169px;
+      margin-bottom: 3.2rem;
+    }
+    &.mobile-logo {
+      width: 60px;
+      position: absolute;
+      top: 20px;
+      left: 4rem;
+      @include mq-min($screen-md) {
+        display: none;
+      }
+
+      &:focus {
+        outline: 1px dotted #ccc;
+      }
+    }
+  }
+
+  .nav-cta {
+    text-transform: uppercase;
+    line-height: 6.6rem;
+    letter-spacing: 1px;
+    font-size: 5.5rem;
+  }
+  .content__wrapper {
+    max-width: 480px;
+    margin-left: 13.3rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  nav#full-site-nav {
+    flex-basis: 40%;
+    padding-left: 4rem;
+    background-image: url("/wp-content/uploads/2019/04/home-hero-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-grow: 1;
+    position: relative;
+    @include mq-min($screen-md) {
+      padding-left: 14rem;
+    }
+    .menu {
+      min-height: 550px;
+      padding-top: 3em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      @include mq-min($screen-md) {
+        height: 100%;
+        padding-top: 0;
+        margin-left: 1em;
+      }
+      li {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+
+    ul.nav-menu-full {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      height: 100%;
+      .add-margin-bottom {
+        margin-bottom: 5em;
+      }
+    }
+    li > a {
+      display: block;
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: 0;
+      line-height: 1;
+      margin-bottom: 18px;
+      text-transform: none;
+      @include mq-min($screen-md) {
+        font-size: 2.7rem;
+        // margin-bottom: .8rem;
+      }
+      &:focus,
+      &:hover {
+        color: #0f7e97;
+        margin-left: 5px;
+        .menu-eyebrow {
+          margin-left: -5px;
+        }
+      }
+    }
+
+    li.secondary-menu-item > a {
+      display: none;
+      @include mq-min($screen-md) {
+        display: block;
+        font-size: 1.6rem;
+        color: #444;
+        font-weight: 500;
+        &:focus {
+          color: #0f7e97;
+        }
+      }
+    }
+    .mobile-nav-footer {
+      @include mq-min($screen-md) {
+        display: none;
+      }
+
+      .footer-nav-col-title {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+      p {
+        font-size: 14px;
+        line-height: 19px;
+        margin-bottom: 5px;
+      }
+    }
+    span.menu-eyebrow {
+      display: block;
+      font-weight: 100;
+      font-size: 16px;
+      color: #0f7e97;
+      letter-spacing: 0.8px;
+      line-height: 1.9rem;
+      margin-bottom: 7px;
+      transition: margin-left 0.2s ease-in;
+      &:focus {
+        outline: 1px dotted #ccc;
+      }
+    }
+  }
+
+  .nav-cta {
+    text-transform: uppercase;
+    line-height: 6.6rem;
+    letter-spacing: 1px;
+    font-size: 4.5rem;
+    @include mq-min($screen-lg) {
+      font-size: 5.5rem;
+    }
+  }
+  .content__wrapper {
+    max-width: 480px;
+    margin-left: 5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  nav#full-site-nav {
+    flex-basis: 40%;
+    padding-left: 4rem;
+    background-image: url("/wp-content/uploads/2019/04/home-hero-bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-grow: 1;
+    position: relative;
+    min-height: 800px;
+    @include mq-min($screen-md) {
+      padding-left: 10rem;
+    }
+    .menu {
+      min-height: 550px;
+      padding-top: 3em;
+      padding-bottom: 3em;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      @include mq-min($screen-md) {
+        height: 100%;
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-left: 1rem;
+        margin-right: 1rem;
+      }
+      li {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+
+    @include mq-min($screen-md) {
+      font-size: 12px;
+      margin-bottom: 5px;
+    }
+  }
+
+  .menu-close {
+    position: absolute;
+    right: 0;
+    width: 100px;
+    height: 100px;
+    border: none;
+    @include mq-min($screen-md) {
+      height: 100px;
+      left: initial;
+      right: -8.6%;
+      transform: translateX(-50%);
+      width: 100px;
+    }
+    @include mq-min($screen-lg) {
+      height: 140px;
+      width: 140px;
+      right:0;
+    }
+  }
+
+  .add-margin-bottom {
+    margin-bottom: 4rem;
+  }
+}
+
+.main-navigation {
+  display: inline-block;
+  margin-right: 2rem;
+  ul.nav-menu {
+    margin-bottom: 0;
+  }
+}
+
+.hamburger-menu {
+  border: 0;
+  background: transparent;
+  display: inline-block;
+  position: relative;
+  width: 32px;
+  min-height: 20px;
+  &:after {
+    content: none;
+  }
+  &:focus,
+  &:hover {
+    cursor: pointer;
+    outline: none;
+    span.h-line {
+      background-color: $c_primary;
+      &.h-line__1 {
+        top: 20%;
+      }
+      &.h-line__3 {
+        bottom: 20%;
+      }
+    }
+  }
+  span.h-line {
+    width: 32px;
+    height: 2px;
+    background-color: #0f7e97;
+    display: block;
+    position: absolute;
+    transform-origin: center;
+    transition: all 0.2s ease-in;
+    &:last-child {
+      margin-bottom: 0;
+    }
+    &.h-line__1 {
+      top: 0;
+    }
+    &.h-line__2 {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    &.h-line__3 {
+      bottom: 0;
+    }
+  }
+}
+.scroll-lock {
+  -webkit-overflow-scrolling: touch;
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+}
+.hidden {
+  display: none;
+}

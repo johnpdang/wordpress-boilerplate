@@ -1,0 +1,42 @@
+.default-page__wrapper {
+    padding-top: 145px;
+    .page-header {
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        padding-top: 5px;
+        @include mq-min($screen-md) {
+            padding-top: 100px;
+        }
+    }
+    blockquote {
+        padding: 4rem 0;
+        font-size: 2.4rem;
+        line-height: 1.5;
+        position: relative;
+        color: #0f7e97;
+        overflow: visible;
+        margin-left: 3em;
+        &:before {
+            content: '';
+            background: #FD9E28;
+            position: absolute;
+            top: 50%;
+            left: -4rem;
+            height: 3px;
+            width: 1.6rem;
+            transform: translateY(-50%);
+        }
+        p {
+            font-size: inherit;
+            line-height: inherit;
+        }
+    }
+    ol,
+    ul {
+        margin-left: 2em;
+        @include mq-min($screen-md) {
+            margin-left: 4em;
+        }
+    }
+}

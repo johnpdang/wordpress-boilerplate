@@ -1,0 +1,12 @@
+.slider-container {
+    overflow: hidden;
+}
+
+.slick-slide:nth-of-child(n+1) {
+    display: none;
+}
+
+.slick-initialized,
+.slick-slide:first-child {
+    display: block;
+}

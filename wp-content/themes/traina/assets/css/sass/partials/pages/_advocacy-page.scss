@@ -1,0 +1,149 @@
+#industry-expertise {
+  background-color: $c_alt;
+  padding-bottom: 10rem;
+  .grid__header {
+    h3 {
+      color: $c_white;
+    }
+    p {
+      color: $c_white;
+    }
+  }
+  .flex-3:first-of-type {
+    padding-left: 0;
+  }
+  .flex-3 {
+    flex-basis: 100%;
+    width: 100%;
+    @include mq-min($screen-sm) {
+      flex-basis: 33%;
+      width: 33%;
+      padding: 0 2rem;
+    }
+  }
+
+  .flex-grid {
+    h6 {
+      color: $c_accent;
+      margin-bottom: 3rem;
+    }
+    p {
+      color: $c_white;
+      margin-bottom: 3rem;
+      border-bottom: 3px solid #fff;
+      padding-bottom: 3rem;
+    }
+  }
+}
+
+#services {
+  background-color: #f7f7f7;
+  .flex-grid {
+    .grid-item {
+      margin-bottom: 3rem;
+      @include mq-min($screen-sm) {
+        margin-bottom: 0;
+      }
+    }
+    .grid-item ~ .grid-item {
+      background-color: $c_white;
+      height: 87rem;
+      padding: 25rem 10rem;
+      position: relative;
+      margin-bottom: 1rem;
+      flex-basis: 100%;
+      width: 100%;
+      @include mq-min($screen-sm) {
+        flex-basis: 50%;
+        width: 50%;
+      }
+      @include mq-min($screen-lg) {
+        margin-bottom: -21rem;
+        transform: translateY(-13rem);
+      }
+      &:before {
+        background-color: #fd9e28;
+        content: "";
+        height: 150px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 150px;
+      }
+      .hover-content__wrapper {
+        width: 65%;
+      }
+      h2.column-title {
+        font-size: 2.8rem;
+        line-height: 1.68;
+      }
+    }
+    ul.column-content {
+      li.hover-item {
+        color: $c_primary;
+        list-style: none;
+        position: relative;
+        display: inline-block;
+        float: left;
+        clear: both;
+        &:before {
+          content: "› ";
+          font-size: 2rem;
+        }
+        &.active {
+          cursor: pointer;
+          font-weight: $fw_bold;
+          @include mq-min($screen-md) {
+            .draw-line {
+              background-color: $c_primary;
+              content: "";
+              height: 1px;
+              margin-left: 2rem;
+              position: absolute;
+              top: 50%;
+              z-index: 1;
+              opacity: 1;
+            }
+          }
+          .draw-line {
+            width: 0;
+            transition: width 0.3s ease-in;
+          }
+        }
+      }
+    }
+  }
+}
+
+#case-studies {
+  .container {
+    .grid__header {
+      padding-top: 16rem;
+    }
+  }
+  .flex-grid {
+    .case-study {
+      border-bottom: 4px solid $c_primary;
+      margin-bottom: 4rem;
+      padding-bottom: 3rem;
+      @include mq-min($screen-md) {
+        margin-right: 4rem;
+      }
+      p.eyebrow {
+        font-family: Helvetica;
+        font-size: 12px;
+        font-weight: $fw_regular;
+        letter-spacing: 1.7px;
+        line-height: 3.17;
+        margin-bottom: 0;
+        text-transform: uppercase;
+      }
+      h6 {
+        margin-bottom: 1rem;
+      }
+      a.button {
+        padding-bottom: 1rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+#upcoming-events {
+  background-size: cover;
+  background: url(/wp-content/uploads/2019/05/advocacy-team-bg.jpg) no-repeat;
+  .grid__header {
+    border-bottom: 1px solid $c_primary;
+    margin-bottom: 3rem;
+    p {
+      padding: 0 0 6rem 0;
+      @include mq-min($screen-lg) {
+        width: 55%;
+        margin: 0;
+      }
+    }
+  }
+  .flex-grid {
+    padding-bottom: 10rem;
+    border-bottom: 1px solid $c_primary;
+  }
+  .event {
+    margin-bottom: 3rem;
+    // &.flex-3:first-of-type {
+    //   @include mq-min($screen-md) {
+    //     padding-left: 0;
+    //   }
+    // }
+    h6 {
+      font-size: 2.2rem;
+      line-height: 1.73;
+    }
+    .event__date {
+      color: $c_primary;
+      font-family: Helvetica;
+      font-size: 12px;
+      font-weight: $fw_regular;
+      letter-spacing: 1.7px;
+      line-height: 3.17;
+      margin-bottom: 0;
+      text-transform: uppercase;
+    }
+    a.button {
+    }
+    .event__loc {
+      font-size: 16px;
+    }
+  }
+}
+
+#case-studies {
+  .container {
+    padding-top: 0;
+    padding-bottom: 15rem;
+  }
+}

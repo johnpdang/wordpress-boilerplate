@@ -1,0 +1,9 @@
+#article {
+  img {
+    padding: 1rem 0 3rem 0;
+    &.circle {
+      border-radius: 50%;
+      padding: 1rem;
+    }
+  }
+}

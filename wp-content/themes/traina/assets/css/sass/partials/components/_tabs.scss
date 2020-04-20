@@ -1,0 +1,221 @@
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.tab__wrapper {
+  max-width: 1260px;
+  margin: 0 auto;
+}
+
+.nav-underlined__wrapper {
+  display: flex;
+  justify-content: center;
+  .nav-item {
+    padding: 0 2em;
+    // border-right: 1px solid $light-grey;
+    &:last-of-type {
+      border-right: 0;
+    }
+  }
+  .nav-underlined {
+    padding: 0;
+    &.active {
+      position: relative;
+      &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        left: 0;
+        right: 0;
+        top: 2em;
+        // border-bottom: 1px solid $yellow;
+      }
+    }
+  }
+}
+
+.tab-content {
+  padding: 3em 1em;
+}
+
+#client-list {
+  .grid__header {
+  }
+  .tab {
+    &__wrapper {
+      .tab__list {
+        border-bottom: 1px solid $c_primary;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 3rem;
+        > * {
+          padding: 2rem 5rem;
+          color: $c_primary;
+          cursor: pointer;
+          &:focus,
+          &:hover,
+          &.active {
+            outline: none;
+            border-bottom: 3px solid $c_accent;
+            font-weight: $fw_bold;
+          }
+        }
+      }
+    }
+    &__content {
+      .tab__display {
+        .flex-2 {
+          position: relative;
+          padding: 0 2rem;
+        }
+        div {
+          color: $c_secondary;
+        }
+        a {
+          color: $c_secondary;
+          font-size: 20px;
+          font-weight: 300;
+          font-family: $font_primary;
+          line-height: 36px;
+          text-decoration: none;
+          position: relative;
+          display: inline-block;
+          padding-left: 12px;
+          &:before {
+            content: "› ";
+            color: $c_secondary;
+            padding-right: 5px;
+            position: absolute;
+            left: 0;
+          }
+          &:hover {
+            color: $c_alt;
+          }
+          &:hover,
+          &:active,
+          &:focus {
+            text-decoration: none;
+            border-bottom: 1px dotted $c_element;
+            outline: none;
+          }
+        }
+        .pre_letter__ {
+          &a,
+          &b,
+          &c,
+          &d,
+          &e,
+          &f,
+          &g,
+          &h,
+          &i,
+          &j,
+          &k,
+          &l,
+          &m,
+          &n,
+          &o,
+          &p,
+          &q,
+          &r,
+          &s,
+          &t,
+          &u,
+          &v,
+          &w,
+          &x,
+          &y,
+          &z {
+            position: relative;
+            &:before {
+              position: absolute;
+              left: -20px;
+              top: 5px;
+              font-weight: bold;
+              color: #dadada;
+            }
+          }
+          &a:before {
+            content: "A";
+          }
+          &b:before {
+            content: "B";
+          }
+          &c:before {
+            content: "C";
+          }
+          &d:before {
+            content: "D";
+          }
+          &e:before {
+            content: "E";
+          }
+          &f:before {
+            content: "F";
+          }
+          &g:before {
+            content: "G";
+          }
+          &h:before {
+            content: "H";
+          }
+          &i:before {
+            content: "I";
+          }
+          &j:before {
+            content: "J";
+          }
+          &k:before {
+            content: "K";
+          }
+          &l:before {
+            content: "L";
+          }
+          &m:before {
+            content: "M";
+          }
+          &n:before {
+            content: "N";
+          }
+          &o:before {
+            content: "O";
+          }
+          &p:before {
+            content: "P";
+          }
+          &q:before {
+            content: "Q";
+          }
+          &r:before {
+            content: "R";
+          }
+          &s:before {
+            content: "S";
+          }
+          &t:before {
+            content: "T";
+          }
+          &u:before {
+            content: "U";
+          }
+          &v:before {
+            content: "V";
+          }
+          &w:before {
+            content: "W";
+          }
+          &x:before {
+            content: "X";
+          }
+          &y:before {
+            content: "Y";
+          }
+          &z:before {
+            content: "Z";
+          }
+        }
+      }
+    }
+  }
+}

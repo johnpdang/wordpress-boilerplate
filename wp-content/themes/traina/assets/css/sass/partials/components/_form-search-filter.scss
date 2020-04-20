@@ -1,0 +1,73 @@
+.search_filter_form {
+  .form-fields {
+    display: flex;
+  }
+  /* Style the form - display items horizontally */
+  .form-item {
+    display: block;
+    @media (min-width: 1024px) {
+      align-items: center;
+      flex-flow: row wrap;
+      padding: 0 0 0 10px;
+      &:first-child {
+        padding-left: 0;
+      }
+      &.form-col-xs {
+        width: 15%;
+      }
+      &.form-col-small {
+        width: 25%;
+      }
+      &.form-col-med {
+        width: 50%;
+      }
+    }
+  }
+
+  /* Add some margins for each label */
+  label,
+  .label {
+    clear: both;
+    display: block;
+    font-weight: $fw_regular;
+    margin: 5px 10px 5px 0;
+  }
+
+  /* Style the input fields */
+  input,
+  select {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    display: block;
+    margin: 5px 10px 5px 0;
+    padding: 10px;
+    vertical-align: top;
+    width: 100%;
+  }
+
+  /* Style the submit button */
+  button {
+    background-color: dodgerblue;
+    border: 1px solid #ddd;
+    color: white;
+    padding: 10px 20px;
+  }
+
+  button:hover {
+    background-color: royalblue;
+  }
+
+  /* Add responsiveness - display the form controls vertically instead of horizontally on screens that are less than 800px wide */
+  @media (max-width: 800px) {
+    align-items: stretch;
+    flex-direction: column;
+
+    input {
+      margin: 10px 0;
+    }
+  }
+}
+
+.ui-datepicker-active {
+  z-index: 5 !important;
+}

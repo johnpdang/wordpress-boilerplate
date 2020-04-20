@@ -1,0 +1,269 @@
+button, html [type="button"], [type="reset"], [type="submit"] {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  -webkit-box-shadow: none;
+  border-radius: 0;
+  border: 0;
+  box-shadow: none;
+}
+.slick-arrow,
+.button {
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  -webkit-box-shadow: none;
+  background-color: transparent;
+  border-radius: 0;
+  border: 0;
+  box-shadow: none;
+  color: $c_secondary;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 14px;
+  font-weight: $fw_bold;
+  letter-spacing: 4px;
+  line-height: 1;
+  padding: 0;
+  text-transform: uppercase;
+  &:focus,
+  &:hover {
+    background-color: transparent;
+  }
+  &:active,
+  &:focus {
+    text-decoration: none;
+    border-bottom: 1px dotted $c_element;
+    outline: none;
+  }
+  &:after {
+    background-size: 100%;
+    background: url(/wp-content/uploads/2019/05/cta-arrow.svg) no-repeat;
+    color: $c_secondary;
+    content: "";
+    display: inline-block;
+    filter: brightness(100) invert(1);
+    font-size: 1.6rem;
+    height: 9px;
+    line-height: 1;
+    margin-left: 0.5em;
+    width: 22px;
+  }
+}
+#footer__modals_container {
+  button,
+  .button {
+    &:after {
+      display: none;
+    }
+  }
+}
+a.arrow-right-after {
+  position: relative;
+  &:after {
+    background-size: 100%;
+    background: url(/wp-content/uploads/2019/05/cta-arrow.svg) no-repeat;
+    color: $c_secondary;
+    content: "";
+    display: inline-block;
+    filter: brightness(100) invert(1);
+    font-size: 1.6rem;
+    height: 9px;
+    line-height: 1;
+    margin-left: 0.5em;
+    width: 22px;
+  }
+}
+.btn {
+  color: inherit;
+  font-size: 1.4rem;
+  font-weight: $fw_bold;
+  text-transform: uppercase;
+}
+
+.btn-lg {
+  position: relative;
+}
+
+.btn--hollow {
+  border-color: #fff;
+  border-radius: 0;
+  font-size: 14px;
+  padding-bottom: 1em;
+  padding-top: 1em;
+  transition: all 0.3s ease-in;
+  width: 140px;
+  &:hover,
+  &:focus {
+    background-color: rgba(255, 255, 255, 0.8);
+    color: grey;
+  }
+}
+.btn-sm {
+}
+
+.btn-primary {
+  @extend .btn-lg !optional;
+  color: $c_secondary;
+
+  &:hover,
+  &:not(:disabled):not(.disabled):active {
+    color: $c_primary;
+  }
+  &:focus {
+    color: $c_primary;
+  }
+
+  .block_section_reverse &,
+  .block_section_alt & {
+    @extend .btn-reverse;
+  }
+}
+
+.btn-reverse {
+  color: $c_white;
+  &:after {
+    color: $c_white;
+    filter: brightness(0) invert(1);
+  }
+  &:hover,
+  &:not(:disabled):not(.disabled):active {
+    opacity: 0.6;
+  }
+  &:focus {
+    opacity: 0.6;
+  }
+}
+
+.btn-alt {
+  @extend .btn-lg !optional;
+  background: transparent;
+  border-color: $c_white;
+  color: $c_white;
+  min-width: 0;
+  &:hover,
+  &:not(:disabled):not(.disabled):active,
+  &:focus {
+    background: $c_white;
+    border-color: $c_white;
+    color: #766c52;
+  }
+}
+
+.btn-white {
+  color: $c_white;
+  &:focus,
+  &:hover,
+  &:not(:disabled):not(.disabled):active {
+    // color: $dark-grey;
+  }
+}
+button:disabled,
+btn-disabled {
+  color: gray;
+}
+
+h5.accordion-title {
+  margin-bottom: 0;
+}
+
+.accordion-btn-header {
+  background-color: transparent;
+  cursor: pointer;
+  font-size: inherit;
+  font-weight: inherit;
+  height: 100%;
+  line-height: inherit;
+  padding: 1em;
+  position: relative;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+  width: 100%;
+  &:focus,
+  &:hover {
+    background-color: transparent;
+  }
+  &:after {
+    content: "-";
+    position: absolute;
+    top: 50%;
+    right: 1em;
+    transform: translate(0%, -50%);
+  }
+  &.collapsed:after {
+    content: "+";
+    position: absolute;
+    top: 50%;
+    right: 1em;
+    transform: translate(0%, -50%);
+  }
+}
+
+.arrow-link {
+  position: relative;
+  margin-left: 1em;
+  &:after {
+    align-items: center;
+    bottom: 0;
+    content: "›";
+    display: flex;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transform: translate(-35%, 0);
+    width: 50px;
+  }
+}
+.btn-arrow-cta-line {
+  display: none;
+  @include mq-min($screen-sm) {
+    display: block;
+    height: 1px;
+    line-height: 20px;
+    width: 100%;
+  }
+}
+
+.extended-arrow-link {
+  &:before {
+    content: "";
+    left: 0;
+    position: absolute;
+    top: 60%;
+    transform: translate(-30vw, -34%);
+    width: 25vw;
+    @include mq-min($screen-md) {
+      width: 28vw;
+    }
+  }
+}
+
+.close-button {
+  background-color: #fd9e28;
+  cursor: pointer;
+  position: relative;
+  &:focus {
+    outline: none;
+  }
+  &.hover-active {
+    .close-bar-one {
+      transform: translate(-50%, -50%) rotate(0);
+    }
+    .close-bar-two {
+      transform: translate(-50%, -50%) rotate(0);
+    }
+  }
+  .close-bar-one {
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  .close-bar-two {
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+  .close-bar {
+    background: $c_primary;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    top: 50%;
+    transition: transform 0.2s ease-in-out;
+    width: 30px;
+  }
+}

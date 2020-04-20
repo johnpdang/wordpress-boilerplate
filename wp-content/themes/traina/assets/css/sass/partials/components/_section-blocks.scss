@@ -1,0 +1,137 @@
+.section__wrapper {
+  .grid__header {
+    padding: 0;
+    @include mq-min($screen-lg) {
+      width: 100%;
+    }
+    &-sm {
+      padding: 8rem 0;
+      @include mq-min($screen-sm) {
+        padding: 8rem 0;
+        width: 35%;
+      }
+    }
+    &-md {
+      padding: 8rem 0;
+      @include mq-min($screen-md) {
+        padding: 8rem 0;
+        width: 550px;
+      }
+    }
+    &-lg {
+      padding: 8rem 0;
+      @include mq-min($screen-lg) {
+        padding: 8rem 0;
+        width: 750px;
+      }
+    }
+    &-xl {
+      padding: 8rem 0;
+      @include mq-min($screen-xl) {
+        padding: 8rem 0;
+        width: 900px;
+      }
+    }
+    h3 {
+      font-size: 5rem;
+    }
+  }
+  .grid-item:first-of-type {
+    padding-left: 0;
+  }
+  .grid-item {
+    flex-grow: 1;
+    padding: 3rem 2rem 2rem 0;
+    position: relative;
+    @include mq-min($screen-md) {
+      margin: 0 2rem;
+      padding: 3rem 2rem 0 0;
+    }
+
+    @include mq-min($screen-xxl) {
+      flex-grow: 0;
+    }
+
+    &.slider-content {
+      flex-basis: 100%;
+      margin: 0;
+      order: 1;
+      padding: 0;
+
+      @include mq-min($screen-lg) {
+        order: 0;
+        flex-basis: 45%;
+      }
+    }
+  }
+
+  .line {
+    background-color: $c_accent;
+    display: block;
+    height: 5px;
+    left: 2%;
+    margin-bottom: 2.5rem;
+    padding: 0;
+    position: relative;
+    top: -2rem;
+    width: 10rem;
+  }
+
+  .text-content {
+    // max-width: 655px;
+    margin: 0;
+    padding-left: 5px;
+    padding-right: 5px;
+
+    @include mq-min($screen-sm) {
+      padding-top: 4rem;
+    }
+
+    @include mq-min($screen-md) {
+      padding: 5rem;
+    }
+  }
+  h3.column-title {
+    font-size: 5rem;
+  }
+  h2.column-title {
+    margin-bottom: 3rem;
+  }
+
+  p {
+    font-size: 20px;
+    line-height: 1.6;
+  }
+
+  .section.grid-item {
+    margin-left: 7rem;
+    margin-top: 4rem;
+  }
+
+  .right-content.image-content {
+    flex-basis: 100%;
+
+    @include mq-min($screen-lg) {
+      flex-basis: 33%;
+    }
+  }
+
+  .image__wrapper {
+    height: 100%;
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 3.3em 0;
+    width: 100%;
+
+    @include mq-min($screen-lg) {
+      margin-left: auto;
+    }
+
+    img {
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      width: 100%;
+    }
+  }
+}

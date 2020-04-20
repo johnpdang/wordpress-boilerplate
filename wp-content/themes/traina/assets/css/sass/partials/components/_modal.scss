@@ -1,0 +1,233 @@
+//Default Modal
+// About Modal
+.modal-slide__wrapper {
+    .slide-control {
+        align-self: flex-end;
+        margin-top: auto;
+    }
+}
+
+// Overwriting Bootsrap CSS
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 100%;
+    }
+}
+
+.modal {
+    display: block;
+    background-color: #fff;
+    overflow: scroll;
+    transition:  opacity .3s ease-in-out, transform .6s, visibility .8s;
+    opacity: 0;
+    visibility: hidden;
+    padding-top: 60px;
+    @include mq-min($screen-sm){
+        padding-top: 90px;
+    }
+    &.active {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        .modal-content__wrapper {
+            opacity: 1;
+            transform: rotateX(0deg);
+        }
+    }
+    &.closed {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        .modal-content__wrapper {
+            opacity: 1;
+            transform: translateY(25%) rotateX(-35deg);
+        }
+    }
+   
+    .modal-content__wrapper {
+        max-width: 90rem;
+        margin: 0 auto;
+        padding-top: 2rem;
+        transform: translateY(-25%) rotateX(35deg);
+        opacity: 0;
+        transition: transform .5s ease-in-out, opacity .6s ease-in-out;
+    }
+    .modal-body {
+        border-bottom: 1px solid rgba(151, 151, 151, .3);
+        padding-bottom: 6rem;
+        padding-left: 0;
+        padding-right: 0;
+        margin-bottom: 7rem;
+    }
+
+    .close-btn-group {
+        position: absolute;
+        top: 0;
+        left: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        max-width: 1400px;
+        width: 100%;
+        transform: translateX(-50%);
+        outline: none;
+        border: none;
+        .close-text {
+            color: black;
+            font-size: 12px;
+
+        }
+
+        .close-btn {
+            width: 60px;
+            height: 60px;
+            background-color: #FD9E28;
+            opacity: 1;
+            margin-left: 2rem;
+            @include mq-min($screen-md) {
+                width: 90px;
+                height: 90px;
+            }
+        }
+    }
+    .close-modal {
+        text-shadow: none;
+        cursor: pointer;
+    }
+    .close-link {
+        // padding: 1rem 2rem;
+        font-size: 12px;
+        display: flex;
+        max-width: 300px;
+        font-weight: 800;
+        letter-spacing: 2px;
+        align-items: center;
+        align-self: center;
+        transition: color .3s ease-in;
+        &:before {
+            content: '';
+            background-size: 100%;
+            background: url(/wp-content/uploads/2019/05/cta-arrow.svg) no-repeat center center;
+            width: 20px;
+            height: 20px;
+            display: inline-block;
+            transform: rotate(-180deg);
+            margin-right: 1rem;
+        }
+        &:focus,
+        &:hover {
+            color: $c_twilightBlue;
+        }
+        @include mq-min($screen-sm){
+            align-self: flex-start;
+        }
+    }
+    h4 {
+        font-size: 2.4rem;
+        color: $c_secondary;
+        position: relative;
+        &:before {
+            content: "";
+            background-color: $c_accent;
+            width: 16px;
+            height: 3px;
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: -4rem;
+        }
+    }
+    blockquote {
+        padding: 4rem 0;
+        font-size: 2.4rem;
+        line-height: 1.5;
+        position: relative;
+        color: #0f7e97;
+        overflow: visible;
+        &:before {
+            content: '';
+            background: #FD9E28;
+            position: absolute;
+            top: 50%;
+            left: -4rem;
+            height: 3px;
+            width: 1.6rem;
+            transform: translateY(-50%);
+        }
+    }
+    p {
+        color: $c_element;
+        font-size: 18px;
+        line-height: 30px;
+        font-family: "PF DinText Pro", sans-serif;
+        margin-bottom: 30px;
+        @include mq-min($screen-sm){
+            font-size: 20px;
+            line-height: 32px;
+        }
+    }
+    img {
+        width: 100%;
+        margin-bottom: 3rem;
+    }
+    
+    .modal-title-wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+
+        h2 {
+            text-transform: none;
+            margin-bottom: 1rem;
+            @include mq-min($screen-sm){
+                margin-bottom: 2.5rem;
+            }
+        }
+        .eyebrow {
+            margin-bottom: 0;
+        }
+    }
+
+    .social-links {
+        display: flex;
+        margin-bottom: 3rem;
+        @include mq-min($screen-sm){
+            margin-bottom: 0;
+        }
+    }
+    .social {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 40px;
+        height: 40px;
+        border: 1px solid #fd9e28;
+        border-radius: 50%;
+        margin-right: 2rem;
+        padding: 1rem;
+        transition: all .3s ease-in-out;
+        &:focus,
+        &:hover {
+            border: 1px solid transparent;
+            outline: none;
+            background-color: #fd9e28;
+            path,
+            use {
+                fill: #fff;
+            }
+        }
+        path,
+        use {
+            transition: all .3s ease-in-out;
+            fill: #0F7E97;
+        }
+        @include mq-min($screen-sm){
+            width: 50px;
+            height: 50px;
+            margin-right: 0;
+            margin-left: 3rem;
+        }
+    }
+
+}

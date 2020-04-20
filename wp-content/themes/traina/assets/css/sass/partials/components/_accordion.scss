@@ -1,0 +1,41 @@
+.bottom {
+  bottom: 0;
+  position: absolute;
+}
+
+.accordion__wrapper {
+  max-width: 1200px;
+}
+
+
+.accordion-card {
+  &:first-child {
+    .card-header {
+      border-top: 1px solid rgba(0, 0, 0, 0.125);
+    }
+  }
+
+  .card-header {
+    background-color: transparent;
+    border-radius: 0;
+    padding: 0;
+
+    &:first-child {
+      border-radius: 0;
+    }
+  }
+
+  .card-body {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    justify-content: space-between;
+  }
+
+  .accordion-desc {
+    flex-direction: column;
+    justify-content: flex-start;
+
+    .btn-primary {
+      max-width: 200px;
+    }
+  }
+}

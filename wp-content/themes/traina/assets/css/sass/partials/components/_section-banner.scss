@@ -1,0 +1,208 @@
+#section-banner {
+  .background-image {
+    background-size: cover;
+    background: url(/wp-content/uploads/2019/05/advocacy-team-bg.jpg) no-repeat;
+  }
+  .container {
+    padding: 4rem 0;
+    max-width: none;
+    .grid-item {
+      margin: 0;
+      max-height: 380px;
+      padding: 0;
+      z-index: 1;
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      .line {
+        left: 2rem;
+        position: absolute;
+        top: 0;
+        @include mq-min($screen-sm) {
+          left: 4rem;
+        }
+        @include mq-min($screen-xl) {
+          left: 0;
+        }
+      }
+      .column-content {
+        max-width: 500px;
+        padding: 4rem 2rem;
+        &:before {
+          height: 8px;
+          background-color: #fd9e28;
+          width: 196px;
+          position: absolute;
+          bottom: 0;
+          left: 12%;
+        }
+        @include mq-min($screen-sm) {
+          padding: 4rem;
+        }
+        @include mq-min($screen-xl) {
+          padding: 0;
+        }
+      }
+      & ~ .grid-item {
+        padding: 0;
+        @include mq-min($screen-xl) {
+          margin-right: 15%;
+          max-width: 500px;
+        }
+      }
+    }
+    blockquote {
+      &:before {
+        display: none;
+      }
+    }
+    .image-right,
+    .image-left {
+      padding: 0;
+      .image__wrapper {
+        max-width: none;
+        padding: 0;
+      }
+    }
+  }
+  ul {
+    -moz-columns: 2;
+    -webkit-columns: 2;
+    columns: 2;
+    li {
+      list-style: none;
+      a {
+        color: $c_secondary;
+        font-size: 1.4rem;
+        font-weight: $fw_medium;
+        text-decoration: none;
+      }
+      &:before {
+        content: "› ";
+        color: $c_secondary;
+      }
+    }
+  }
+  .icon {
+    background-color: $c_accent;
+    height: 10rem;
+    position: absolute;
+    right: -5%;
+    top: 7%;
+    width: 10rem;
+    img {
+      align-items: center;
+      border-style: none;
+      display: flex;
+      justify-content: center;
+      margin: 5rem;
+      margin: auto;
+      padding-top: 2.25rem;
+      width: 50%;
+    }
+  }
+
+  hr.line__bottom {
+    border-bottom: none;
+    border: 1px solid #fff;
+    width: 20px;
+  }
+  .bg_ten {
+    // background: $c_accent url(/wp-content/uploads/2019/05/10@2x.png) no-repeat;
+    overflow: hidden;
+    position: relative;
+    &:after {
+      bottom: -90%;
+      color: #ffab23;
+      content: "10";
+      font-size: 50rem;
+      font-weight: bold;
+      letter-spacing: -9rem;
+      opacity: 0.75;
+      overflow: hidden;
+      position: absolute;
+      right: -25%;
+      z-index: -1;
+    }
+  }
+  .bg_accent {
+    padding: 3rem;
+    max-height: 375px;
+    &.grid-item {
+      align-items: flex-start;
+      padding: 4rem;
+      @include mq-min($screen-lg) {
+        margin-left: 10%;
+        max-width: 50rem;
+      }
+      .support-large-text {
+        bottom: -3rem;
+        color: $c_white;
+        font-size: 410px;
+        font-weight: 600;
+        letter-spacing: -61px;
+        line-height: 296px;
+        opacity: 0.13;
+        overflow: hidden;
+        position: absolute;
+        right: -7rem;
+      }
+      & ~ .grid-item {
+        margin-right: inherit;
+        flex-grow: 1;
+        max-width: inherit;
+      }
+    }
+    @include mq-min($screen-xl) {
+      width: 25%;
+    }
+
+    .eyebrow.c_white {
+      color: $c_white;
+    }
+    h2 {
+      color: $c_white;
+    }
+    .image_wrapper {
+      max-width: none;
+      padding: 0;
+    }
+  }
+
+  .bg_secondary {
+    //update this hacked fix
+    max-height: 277px;
+    padding: 3rem;
+    @include mq-min($screen-xl) {
+      width: 25%;
+    }
+    .top-layer {
+      position: relative;
+      z-index: 2;
+    }
+    .column-content {
+      display: flex;
+      position: relative;
+      flex-direction: column;
+      flex-grow: 1;
+      justify-content: center;
+      margin: 0;
+      padding: 0;
+    }
+    blockquote {
+      padding: 2rem;
+    }
+    .eyebrow.c_white {
+      color: $c_white;
+    }
+    p {
+      color: $c_white;
+    }
+    .image_wrapper {
+      max-width: none;
+      padding: 0;
+    }
+  }
+}

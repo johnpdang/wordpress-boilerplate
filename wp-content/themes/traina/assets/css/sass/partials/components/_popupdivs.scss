@@ -1,0 +1,10 @@
+.popup_div {
+    display:none;
+    &.active {
+        display:block;
+    }
+
+    &__link.active {
+        font-weight:$fw-bold;
+    }
+}

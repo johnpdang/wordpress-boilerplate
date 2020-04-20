@@ -1,0 +1,223 @@
+@import './../base/fonts';
+
+@mixin elem_animate($speed: .3s) {
+    -webkit-transition: all $speed ease-in-out;
+    -moz-transition: all $speed ease-in-out;
+    transition: all $speed ease-in-out;
+}
+
+
+
+/* ============================================================
+Breakpoints
+============================================================ */
+
+$screen-xs: 575px;
+$screen-sm: 768px;
+$screen-md: 991px;
+$screen-lg: 1200px;
+$screen-xl: 1440px;
+$screen-xxl: 1740px;
+
+.pad-top-x-small {
+    padding-top: 5rem;
+}
+
+.pad-top-small {
+    padding-top: 10rem;
+}
+
+.pad-top-med {
+    padding-top: 20rem;
+}
+
+.pad-top-large {
+    padding-top: 27rem;
+    @media (max-width: 1119px) {
+        padding-top: 22rem;
+    }
+    @media (max-width:768px) {
+        padding-top: 11rem;
+    }
+}
+
+
+/* ============================================================
+Brand colors
+============================================================ */
+
+$white: #fff;
+$black: #000;
+
+// Styleguide colors
+$c_black:$black;
+$c_white:$white;
+$c_lightbeige: #F7F7F7;
+$c_darkbeige: #E6E6DE;
+$c_gray: #444444;
+$c_darkgreen: #003440;
+$c_twilightBlue: #0A436A;
+$c_darkCyan: #0F7E97;
+$c_orangeYellow: #fd9e28;
+$c_pumpkin: #f06c00;
+
+// theme vars
+$theme-dark:$black;
+$theme-alt:$c_darkgreen;
+
+// helper vars
+$c_primary:$c_twilightBlue;
+$c_primary_reverse:$c_lightbeige;
+$c_secondary:$c_darkCyan;
+$c_secondary_reverse:$c_darkbeige;
+$c_alt:$c_darkgreen;
+$c_element:$c_gray;
+$c_accent:$c_orangeYellow;
+
+// elem vars // do not update
+$c_text_primary:$c_primary;
+$c_text_secondary:$c_secondary;
+$c_text_primary_reverse:$c_white;
+
+.c_primary            { color:$c_primary; }
+.c_primary_reverse    { color:$c_primary_reverse; }
+.c_secondary          { color:$c_secondary; }
+.c_secondary_reverse  { color:$c_secondary_reverse; }
+.c_alt                { color:$c_alt; }
+.c_element            { color:$c_element; }
+.c_accent             { color:$c_accent; }
+.c_white              { color:$white;}
+
+.bg_primary           { background-color:$c_primary; }
+.bg_primary_reverse   { background-color:$c_primary_reverse; }
+.bg_secondary         { background-color:$c_secondary; }
+.bg_secondary_reverse { background-color:$c_secondary_reverse; }
+.bg_alt               { background-color:$c_alt; }
+.bg_element           { background-color:$c_element; }
+.bg_accent            { background-color:$c_accent; }
+
+.bg_gradient {
+  background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(251,251,251,1) 100%);
+  background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(251,251,251,1) 100%);
+  background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(251,251,251,1) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00ffffff', endColorstr='#fbfbfb',GradientType=0 );
+}
+
+.bg_primary,
+.bg_alt {
+  color:$c_text_primary_reverse;
+  .c_accent {
+    color:$c_white;
+  }
+  a {
+    color:$white;
+    &:hover,
+    &:active,
+    &:focus,
+    &.active {
+      color:$theme-alt;
+    }
+  }
+}
+
+
+/* ============================================================
+Theme Block helper classes
+============================================================ */
+
+.block_section_default {
+  background:$c_white;
+  color:$c_primary;
+}
+.block_section_reverse {
+  @extend .bg_primary;
+  @extend .block_grd_dark_bottom;
+}
+.block_section_alt {
+  @extend .bg_alt;
+}
+
+.block_section_reverse,
+.block_section_alt {
+  blockquote,
+  .blockquote {
+    color:$c_white;
+  }
+}
+
+.theme-container {
+  position: relative;
+  // width:100%;
+  // max-width:1620px;
+  margin:0 auto;
+  max-width:1170px;
+  width:90%;
+  .site-header & {
+    width:94%;
+  }
+  @media (min-width:1500px) {
+    max-width:1440px;
+  }
+}
+
+.theme_column_alt {
+  background:#766C52;
+  color:$white;
+
+}
+/* ===============
+  Font Weights
+   =============== */
+
+ $fw_light: 300;
+ $fw_regular: 400;
+ $fw_medium: 500;
+ $fw_semibold: 600;
+ $fw_bold: 700;
+
+.fw_light,
+.fw_300 {
+  font-weight:$fw_light;
+}
+.fw_regular,
+.fw_300 {
+  font-weight:$fw_regular;
+}
+.fw_medium,
+.fw_300 {
+  font-weight:$fw_regular;
+}
+.fw_semibold,
+.fw_300{
+  font-weight:$fw_semibold;
+}
+.fw_bold,
+.fw_300 {
+  font-weight:$fw_bold;
+  }
+
+/* ===============
+  Font Families
+   =============== */
+
+// $font_primary: 'Poppins', sans-serif;
+// $font_primary: "proxima-nova", sans-serif;
+$font_primary: 'Helvetica', sans-serif;
+$font_secondary: "PF DinText Pro", sans-serif;
+$font_tertiary: "Cern", sans-serif;
+
+.font_primary {
+  font-family:$font_primary;
+  font-weight:$fw_regular;
+  font-style:none;
+}
+.font_secondary {
+  font-family:$font_secondary;
+  font-weight:$fw_light;
+  font-style:italic;
+}
+
+.block_grd_dark_bottom {
+  // background: linear-gradient(90deg, $c_secondary 0%, $c_secondary 45%, $c_alt 100%);
+  background:$c_primary;
+}
